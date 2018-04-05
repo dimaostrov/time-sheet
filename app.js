@@ -20,7 +20,7 @@ $('#addEmployeeBtn').on('click', function(){
     var totalBilled = monthsTotal * monthlySalary;
     
     let newPostRef = database.ref('/child')
-    database.ref().set({
+    database.ref().push({
         name: name,
         role: role,
         startDate: startDate,
