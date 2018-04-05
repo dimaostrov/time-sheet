@@ -30,8 +30,16 @@ $('#addEmployeeBtn').on('click', function(){
     });
 });
 
-
-
-
-
-var tr = $('<tr>');
+database.ref().on('value', (snapshot)=>{
+  Object.values(snapshot.val()).map(x => {
+    $('#tbody').append(`<tr>
+      <th>${x.name}</th>
+      <th>${x.role}</th>
+      <th>${x.startDate}</th>
+      <th>${x.monthlySalary}</th>
+      <th>${x.monthsTotal}</th>
+      <th>${x.totalBilled}</th>
+    </tr>`)
+    
+  })
+})
