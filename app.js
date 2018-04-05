@@ -16,7 +16,8 @@ $('#submit').on('click', function(){
     var role = $('#roleInput').val();
     var startDate = $('#startInput').val();
     var monthlySalary = $('#rateInput').val();
-    //months worked
+    var monthsTotal = parseInt(moment(startDate, "MMDDYY").fromNow().split(' ')[0]) * 12;
     //total billed
-
+    var tr = $('<tr>');
+    tr.append
 });
