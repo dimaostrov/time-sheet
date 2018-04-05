@@ -9,7 +9,7 @@ var config = {
   firebase.initializeApp(config);
 
 const database = firebase.database();
-
+var count = 1
 
 $('#submit').on('click', function(){
     var name = $('#employeeNameInput').val(); 
@@ -17,7 +17,20 @@ $('#submit').on('click', function(){
     var startDate = $('#startInput').val();
     var monthlySalary = $('#rateInput').val();
     var monthsTotal = parseInt(moment(startDate, "MMDDYY").fromNow().split(' ')[0]) * 12;
-    //total billed
-    var tr = $('<tr>');
-    tr.append
+    var totalBilled = monthsTotal * monthlySalary;
+    
+    database.push({
+        name: name,
+        role: role,
+        startDate: startDate,
+        monthlySalary: monthlySalary,
+        monthsTotal: monthsTotal,
+        totalBilled: totalBilled
+    });
 });
+
+
+
+
+
+var tr = $('<tr>');
